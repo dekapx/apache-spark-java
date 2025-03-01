@@ -1,0 +1,4 @@
+last_name,first_name,comment
+Lee,Bruce,The Way of the Intercepting Fist
+Chan,Jackie,The Way of the Dragon
+Norris,Chuck,The Way of the Dragon
