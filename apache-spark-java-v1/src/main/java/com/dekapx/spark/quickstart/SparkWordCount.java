@@ -4,20 +4,29 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-import static org.apache.spark.sql.functions.*;
+import static org.apache.spark.sql.functions.col;
+import static org.apache.spark.sql.functions.concat;
+import static org.apache.spark.sql.functions.lit;
 
 public class SparkWordCount {
-    public static void main(String[] args) {
-        SparkSession sparkSession = SparkSession
-                .builder()
-                .appName("Spark Word Count")
-                .master("local[*]")
-                .getOrCreate();
+    public static final String CSV_FILE_FORMAT = "csv";
+    public static final String CSV_FILE_PATH = "src/main/resources/data/word-count.txt";
+    public static final String FILE_HEADER = "header";
 
+    public static void main(String[] args) {
+        SparkSession sparkSession = getSparkSession();
         Dataset<Row> dataFrame = readData(sparkSession);
         printData(dataFrame);
         printSchema(dataFrame);
         printModifiedData(dataFrame);
+    }
+
+    private static SparkSession getSparkSession() {
+        return SparkSession
+                .builder()
+                .appName("Spark Word Count")
+                .master("local[*]")
+                .getOrCreate();
     }
 
     private static void printData(Dataset<Row> dataFrame) {
@@ -40,8 +49,8 @@ public class SparkWordCount {
     private static Dataset<Row> readData(SparkSession sparkSession) {
         return sparkSession
                 .read()
-                .format("csv")
-                .option("header", true)
-                .load("src/main/resources/data/word-count.txt");
+                .format(CSV_FILE_FORMAT)
+                .option(FILE_HEADER, true)
+                .load(CSV_FILE_PATH);
     }
 }
