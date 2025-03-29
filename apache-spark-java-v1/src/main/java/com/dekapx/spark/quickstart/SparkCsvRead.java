@@ -8,16 +8,20 @@ import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.concat;
 import static org.apache.spark.sql.functions.lit;
 
-public class SparkWordCount {
+/**
+ * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
+ */
+public class SparkCsvRead {
     public static final String CSV_FILE_FORMAT = "csv";
-    public static final String CSV_FILE_PATH = "src/main/resources/data/word-count.txt";
+    public static final String CSV_FILE_PATH = "src/main/resources/data/sample-data.txt";
     public static final String FILE_HEADER = "header";
 
     public static void main(String[] args) {
         SparkSession sparkSession = getSparkSession();
         Dataset<Row> dataFrame = readData(sparkSession);
-        printData(dataFrame);
         printSchema(dataFrame);
+        printData(dataFrame);
+        applyFilterAndShow(dataFrame);
         printModifiedData(dataFrame);
     }
 
@@ -44,6 +48,13 @@ public class SparkWordCount {
                                 lit(", "),
                                 col("last_name")));
         modifiedDataFrame.show();
+    }
+
+    private static void applyFilterAndShow(Dataset<Row> dataFrame) {
+        Dataset<Row> filteredDataFrame = dataFrame
+                .filter(col("comment").contains("Dragon"))
+                .select("first_name", "last_name", "comment");
+        filteredDataFrame.show();
     }
 
     private static Dataset<Row> readData(SparkSession sparkSession) {
