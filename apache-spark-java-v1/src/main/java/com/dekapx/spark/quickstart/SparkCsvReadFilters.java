@@ -11,7 +11,7 @@ import static org.apache.spark.sql.functions.col;
  */
 public class SparkCsvReadFilters {
     public static final String CSV_FILE_FORMAT = "csv";
-    public static final String CSV_FILE_PATH = "src/main/resources/data/students.txt";
+    public static final String CSV_FILE_PATH = "src/main/resources/data/students-data01.txt";
     public static final String FILE_HEADER = "header";
 
     public static void main(String[] args) {

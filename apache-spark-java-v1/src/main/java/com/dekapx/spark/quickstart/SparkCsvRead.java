@@ -13,7 +13,7 @@ import static org.apache.spark.sql.functions.lit;
  */
 public class SparkCsvRead {
     public static final String CSV_FILE_FORMAT = "csv";
-    public static final String CSV_FILE_PATH = "src/main/resources/data/sample-data.txt";
+    public static final String CSV_FILE_PATH = "src/main/resources/data/movies-data.txt";
     public static final String FILE_HEADER = "header";
 
     public static void main(String[] args) {
@@ -52,9 +52,9 @@ public class SparkCsvRead {
 
     private static void applyFilterAndShow(Dataset<Row> dataFrame) {
         Dataset<Row> filteredDataFrame = dataFrame
-                .filter(col("comment").contains("Dragon"))
-                .select("first_name", "last_name", "comment");
-        filteredDataFrame.show();
+                .filter(col("movie_title").contains("Dragon"))
+                .select("first_name", "last_name", "movie_title");
+        filteredDataFrame.show(3, 45);  // show 3 rows with 45 characters
     }
 
     private static Dataset<Row> readData(SparkSession sparkSession) {

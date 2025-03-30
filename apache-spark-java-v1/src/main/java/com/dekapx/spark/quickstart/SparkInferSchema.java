@@ -1,0 +1,68 @@
+package com.dekapx.spark.quickstart;
+
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.types.StructField;
+import org.apache.spark.sql.types.StructType;
+
+import static org.apache.spark.sql.types.DataTypes.DateType;
+import static org.apache.spark.sql.types.DataTypes.DoubleType;
+import static org.apache.spark.sql.types.DataTypes.IntegerType;
+import static org.apache.spark.sql.types.DataTypes.StringType;
+import static org.apache.spark.sql.types.DataTypes.createStructField;
+import static org.apache.spark.sql.types.DataTypes.createStructType;
+
+/**
+ * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
+ */
+public class SparkInferSchema {
+    public static final String CSV_FILE_FORMAT = "csv";
+    public static final String CSV_FILE_PATH = "src/main/resources/data/students-data02.txt";
+    public static final String FILE_HEADER = "header";
+
+    public static void main(String[] args) {
+        SparkSession sparkSession = getSparkSession();
+        StructType schema = defineSchema();
+        Dataset<Row> dataFrame = readData(sparkSession, schema);
+        printSchema(dataFrame);
+        printData(dataFrame);
+    }
+
+    private static StructType defineSchema() {
+        StructType schema = createStructType(new StructField[] {
+                createStructField("id", IntegerType, false),
+                createStructField("first_name", StringType, false),
+                createStructField("middle_name", StringType, true),
+                createStructField("last_name", StringType, false),
+                createStructField("date_of_birth", DateType, false),
+                createStructField("marks", DoubleType, false)
+        });
+        return schema;
+    }
+
+    private static SparkSession getSparkSession() {
+        return SparkSession
+                .builder()
+                .appName("Spark CSV Read Filters")
+                .master("local[*]")
+                .getOrCreate();
+    }
+
+    private static Dataset<Row> readData(SparkSession sparkSession, StructType schema) {
+        return sparkSession
+                .read()
+                .format(CSV_FILE_FORMAT)
+                .option(FILE_HEADER, true)
+                .schema(schema)
+                .load(CSV_FILE_PATH);
+    }
+
+    private static void printData(Dataset<Row> dataFrame) {
+        dataFrame.show();
+    }
+
+    private static void printSchema(Dataset<Row> dataFrame) {
+        dataFrame.printSchema();
+    }
+}

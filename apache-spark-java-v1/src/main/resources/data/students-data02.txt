@@ -1,0 +1,6 @@
+student_id,first_name,middle_name,last_name,date_of_birth,marks
+1,John,Doe,Smith,1990-01-01,85
+2,Jane,,Brown,1991-02-02,90
+3,Emily,Brian,Johnson,1992-03-03,78
+4,Michael,,Williams,1993-04-04,88
+5,Jessica,Ann,Garcia,1994-05-05,92
