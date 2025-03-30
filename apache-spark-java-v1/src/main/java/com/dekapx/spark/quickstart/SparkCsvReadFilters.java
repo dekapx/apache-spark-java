@@ -25,7 +25,7 @@ public class SparkCsvReadFilters {
     private static SparkSession getSparkSession() {
         return SparkSession
                 .builder()
-                .appName("Spark CSV Read Filters")
+                .appName("SparkCsvReadFilters")
                 .master("local[*]")
                 .getOrCreate();
     }

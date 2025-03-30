@@ -49,7 +49,7 @@ public class SparkInferSchema {
     private static SparkSession getSparkSession() {
         return SparkSession
                 .builder()
-                .appName("Spark CSV Read Filters")
+                .appName("SparkInferSchema")
                 .master("local[*]")
                 .getOrCreate();
     }

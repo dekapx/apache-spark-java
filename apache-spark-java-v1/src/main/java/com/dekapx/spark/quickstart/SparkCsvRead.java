@@ -28,7 +28,7 @@ public class SparkCsvRead {
     private static SparkSession getSparkSession() {
         return SparkSession
                 .builder()
-                .appName("Spark Word Count")
+                .appName("SparkCsvRead")
                 .master("local[*]")
                 .getOrCreate();
     }
