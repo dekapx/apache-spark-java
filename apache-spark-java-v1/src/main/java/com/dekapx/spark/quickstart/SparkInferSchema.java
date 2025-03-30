@@ -20,6 +20,11 @@ public class SparkInferSchema {
     public static final String CSV_FILE_FORMAT = "csv";
     public static final String CSV_FILE_PATH = "src/main/resources/data/students-data02.txt";
     public static final String FILE_HEADER = "header";
+    public static final String SEPARATOR_OPTION = "sep";
+    public static final String SEPARATOR_VALUE = "|";
+    public static final String DATE_FORMAT_OPTION = "dateFormat";
+    public static final String DATE_FORMAT = "yyyy-MM-dd";
+
 
     public static void main(String[] args) {
         SparkSession sparkSession = getSparkSession();
@@ -54,6 +59,8 @@ public class SparkInferSchema {
                 .read()
                 .format(CSV_FILE_FORMAT)
                 .option(FILE_HEADER, true)
+                .option(SEPARATOR_OPTION, SEPARATOR_VALUE)
+                .option(DATE_FORMAT_OPTION, DATE_FORMAT)
                 .schema(schema)
                 .load(CSV_FILE_PATH);
     }
