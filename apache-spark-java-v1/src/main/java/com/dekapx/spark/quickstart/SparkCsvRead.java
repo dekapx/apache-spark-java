@@ -17,28 +17,20 @@ public class SparkCsvRead {
     public static final String FILE_HEADER = "header";
 
     public static void main(String[] args) {
-        SparkSession sparkSession = getSparkSession();
-        Dataset<Row> dataFrame = readData(sparkSession);
-        printSchema(dataFrame);
-        printData(dataFrame);
+        SparkSession sparkSession = createSparkSession();
+        Dataset<Row> dataFrame = buildDataFrame(sparkSession);
+        dataFrame.printSchema();
+        dataFrame.show();
         applyFilterAndShow(dataFrame);
         printModifiedData(dataFrame);
     }
 
-    private static SparkSession getSparkSession() {
+    private static SparkSession createSparkSession() {
         return SparkSession
                 .builder()
                 .appName("SparkCsvRead")
                 .master("local[*]")
                 .getOrCreate();
-    }
-
-    private static void printData(Dataset<Row> dataFrame) {
-        dataFrame.show();
-    }
-
-    private static void printSchema(Dataset<Row> dataFrame) {
-        dataFrame.printSchema();
     }
 
     private static void printModifiedData(Dataset<Row> dataFrame) {
@@ -57,7 +49,7 @@ public class SparkCsvRead {
         filteredDataFrame.show(3, 45);  // show 3 rows with 45 characters
     }
 
-    private static Dataset<Row> readData(SparkSession sparkSession) {
+    private static Dataset<Row> buildDataFrame(SparkSession sparkSession) {
         return sparkSession
                 .read()
                 .format(CSV_FILE_FORMAT)

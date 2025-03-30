@@ -27,11 +27,11 @@ public class SparkInferSchema {
 
 
     public static void main(String[] args) {
-        SparkSession sparkSession = getSparkSession();
+        SparkSession sparkSession = createSparkSession();
         StructType schema = defineSchema();
         Dataset<Row> dataFrame = readData(sparkSession, schema);
-        printSchema(dataFrame);
-        printData(dataFrame);
+        dataFrame.printSchema();
+        dataFrame.show();
     }
 
     private static StructType defineSchema() {
@@ -46,7 +46,7 @@ public class SparkInferSchema {
         return schema;
     }
 
-    private static SparkSession getSparkSession() {
+    private static SparkSession createSparkSession() {
         return SparkSession
                 .builder()
                 .appName("SparkInferSchema")
@@ -63,13 +63,5 @@ public class SparkInferSchema {
                 .option(DATE_FORMAT_OPTION, DATE_FORMAT)
                 .schema(schema)
                 .load(CSV_FILE_PATH);
-    }
-
-    private static void printData(Dataset<Row> dataFrame) {
-        dataFrame.show();
-    }
-
-    private static void printSchema(Dataset<Row> dataFrame) {
-        dataFrame.printSchema();
     }
 }

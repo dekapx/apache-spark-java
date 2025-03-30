@@ -15,14 +15,14 @@ public class SparkCsvReadFilters {
     public static final String FILE_HEADER = "header";
 
     public static void main(String[] args) {
-        SparkSession sparkSession = getSparkSession();
-        Dataset<Row> dataFrame = readData(sparkSession);
-        printSchema(dataFrame);
-        printData(dataFrame);
+        SparkSession sparkSession = createSparkSession();
+        Dataset<Row> dataFrame = buildDataFrame(sparkSession);
+        dataFrame.printSchema();
+        dataFrame.show();
         applyFiltersAndShow(dataFrame);
     }
 
-    private static SparkSession getSparkSession() {
+    private static SparkSession createSparkSession() {
         return SparkSession
                 .builder()
                 .appName("SparkCsvReadFilters")
@@ -30,20 +30,12 @@ public class SparkCsvReadFilters {
                 .getOrCreate();
     }
 
-    private static Dataset<Row> readData(SparkSession sparkSession) {
+    private static Dataset<Row> buildDataFrame(SparkSession sparkSession) {
         return sparkSession
                 .read()
                 .format(CSV_FILE_FORMAT)
                 .option(FILE_HEADER, true)
                 .load(CSV_FILE_PATH);
-    }
-
-    private static void printData(Dataset<Row> dataFrame) {
-        dataFrame.show();
-    }
-
-    private static void printSchema(Dataset<Row> dataFrame) {
-        dataFrame.printSchema();
     }
 
     private static void applyFiltersAndShow(Dataset<Row> dataFrame) {

@@ -1,0 +1,22 @@
+[
+  {
+    "make": "BMW",
+    "model": "530e",
+    "year": 2025,
+    "color": "Black Sapphire",
+    "transmission": "Automatic",
+    "fuel_type": "Hybrid",
+    "mileage": 15000,
+    "price": 85000
+  },
+  {
+    "make": "BMW",
+    "model": "330e",
+    "year": 2024,
+    "color": "Alpine White",
+    "transmission": "Automatic",
+    "fuel_type": "Hybrid",
+    "mileage": 15000,
+    "price": 52000
+  }
+]
