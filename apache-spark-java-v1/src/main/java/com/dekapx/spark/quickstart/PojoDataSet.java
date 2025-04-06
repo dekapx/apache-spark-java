@@ -12,7 +12,7 @@ import static org.apache.spark.sql.functions.col;
 /**
  * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
  */
-public class PojoDataSetExample {
+public class PojoDataSet {
     public static void main(String[] args) {
         SparkSession sparkSession = createSparkSession();
         Dataset<Person> dataset = createDataset(sparkSession);
@@ -27,7 +27,7 @@ public class PojoDataSetExample {
     private static SparkSession createSparkSession() {
         return SparkSession
                 .builder()
-                .appName("PojoDataSetExample")
+                .appName("PojoDataSet")
                 .master("local[*]")
                 .getOrCreate();
     }

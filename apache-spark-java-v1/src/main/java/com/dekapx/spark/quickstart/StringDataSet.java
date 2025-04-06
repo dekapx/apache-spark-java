@@ -11,7 +11,7 @@ import static org.apache.spark.sql.functions.col;
 /**
  * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
  */
-public class StringDataSetExample {
+public class StringDataSet {
     public static void main(String[] args) {
         String[] data = {"Java", "Python", "Scala", "C++", "JavaScript"};
         SparkSession sparkSession = createSparkSession();
