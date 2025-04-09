@@ -7,7 +7,7 @@
     "transmission": "Automatic",
     "fuel_type": "Hybrid",
     "mileage": 15000,
-    "price": 85000
+    "price": 85999.99
   },
   {
     "make": "BMW",
@@ -16,7 +16,37 @@
     "color": "Alpine White",
     "transmission": "Automatic",
     "fuel_type": "Hybrid",
-    "mileage": 15000,
-    "price": 52000
+    "mileage": 5000,
+    "price": 52999.99
+  },
+  {
+    "make": "BMW",
+    "model": "X5",
+    "year": 2023,
+    "color": "Mineral White",
+    "transmission": "Automatic",
+    "fuel_type": "Gasoline",
+    "mileage": 20000,
+    "price": 69999.99
+  },
+  {
+    "make": "BMW",
+    "model": "M330i",
+    "year": 2022,
+    "color": "Sapphire Black",
+    "transmission": "Manual",
+    "fuel_type": "Gasoline",
+    "mileage": 10000,
+    "price": 74999.99
+  },
+  {
+    "make": "BMW",
+    "model": "M4",
+    "year": 2021,
+    "color": "Portimao Blue",
+    "transmission": "Automatic",
+    "fuel_type": "Gasoline",
+    "mileage": 8000,
+    "price": 59999.99
   }
 ]
