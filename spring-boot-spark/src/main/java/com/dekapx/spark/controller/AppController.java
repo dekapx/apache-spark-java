@@ -16,7 +16,6 @@ import static com.dekapx.spark.common.ResourceUrls.INFO_URL;
 @RequiredArgsConstructor
 public class AppController {
     private final CsvReaderService csvReaderService;
-    private static final String CSV_FILE_PATH = "src/main/resources/data/movies-data.txt";
 
     @GetMapping(INFO_URL)
     public String getInfo() {
