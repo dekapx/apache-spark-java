@@ -88,6 +88,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<compilerArguments>
+						<argline>--add-exports java.base/sun.nio.ch=ALL-UNNAMED</argline>
+					</compilerArguments>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
