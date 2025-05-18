@@ -1,0 +1,16 @@
+trade_id,type,price,quantity,location,trade_date
+1,BUY,100.0,10,New York,2023-01-01
+2,SELL,105.0,5,Los Angeles,2023-01-02
+3,BUY,102.0,8,Chicago,2023-01-03
+4,SELL,110.0,12,Houston,2023-01-04
+5,BUY,98.0,15,Miami,2023-01-05
+6,SELL,107.0,7,Seattle,2023-01-06
+7,BUY,101.0,20,Boston,2023-01-07
+8,SELL,108.0,10,Denver,2023-01-08
+9,BUY,99.0,25,San Francisco,2023-01-09
+10,SELL,106.0,30,Atlanta,2023-01-10
+11,BUY,103.0,18,Philadelphia,2023-01-11
+12,SELL,109.0,22,Phoenix,2023-01-12
+13,BUY,104.0,14,San Diego,2023-01-13
+14,SELL,111.0,16,Dallas,2023-01-14
+15,BUY,97.0,11,Orlando,2023-01-15
