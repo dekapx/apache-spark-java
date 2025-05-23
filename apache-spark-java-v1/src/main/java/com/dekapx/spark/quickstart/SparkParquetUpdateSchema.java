@@ -6,7 +6,6 @@ import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.functions;
 import org.apache.spark.sql.types.DataTypes;
-import org.apache.spark.sql.types.StructType;
 
 /**
  * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
@@ -34,6 +33,12 @@ public class SparkParquetUpdateSchema {
         employeeDF = employeeDF
                 .withColumn("employment_type", functions.lit("full-time"))
                 .select(employeeDF.col("*"), functions.col("employment_type").cast(DataTypes.StringType));
+        employeeDF.printSchema();
+        employeeDF.show();
+
+        // update parquet schema by removing column
+        employeeDF = employeeDF
+                .drop("employment_type");
         employeeDF.printSchema();
         employeeDF.show();
     }

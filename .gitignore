@@ -42,3 +42,4 @@ transaction.log
 *.*~
 
 .DS_Store
+*parquet*

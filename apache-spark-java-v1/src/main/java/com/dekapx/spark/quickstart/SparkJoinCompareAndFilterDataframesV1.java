@@ -10,7 +10,7 @@ import static org.apache.spark.sql.functions.when;
 /**
  * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
  */
-public class SparkJoinCompareAndFilterDataframes {
+public class SparkJoinCompareAndFilterDataframesV1 {
     private static final String FILE_FORMAT = "csv";
     private static final String HEADER = "header";
     private static final String ALL_TRADES_FILE_PATH = "src/main/resources/data/allTrades.csv";

@@ -1,7 +1,5 @@
 trade_id,type,price,quantity,location,trade_date
 1,BUY,100.0,10,New York,2023-01-01
-2,SELL,105.0,5,Los Angeles,2023-01-02
-8,SELL,108.0,10,Denver,2023-01-08
-12,SELL,109.0,22,Phoenix,2023-01-12
-13,BUY,104.0,14,San Diego,2023-01-13
-15,BUY,97.0,11,Orlando,2023-01-15
+7,BUY,101.0,20,Boston,2023-01-07
+11,BUY,103.0,18,Philadelphia,2023-01-11
+25,BUY,92.0,27,Tucson,2023-01-25
