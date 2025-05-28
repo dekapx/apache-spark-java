@@ -4,6 +4,7 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
+import static org.apache.spark.sql.functions.broadcast;
 import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.lit;
 import static org.apache.spark.sql.functions.when;
@@ -32,7 +33,7 @@ public class SparkJoinCompareAndFilterDataframesV2 {
      */
     private static void filterValidTrades(Dataset<Row> allTradesDF, Dataset<Row> validTradesDF) {
         Dataset<Row> filteredDF = allTradesDF
-                .join(validTradesDF, allTradesDF.col("trade_id")
+                .join(broadcast(validTradesDF), allTradesDF.col("trade_id")
                         .equalTo(validTradesDF.col("trade_Id")), "left_outer")
                 .select(allTradesDF.col("*"), validTradesDF.col("trade_Id"))
                 .withColumn("valid_trade",
