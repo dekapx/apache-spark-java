@@ -1,0 +1,8 @@
+last_name,first_name,movie_title
+Lee,Bruce,Return of the Dragon
+Chan,Jackie,Rumble in the Bronx
+Norris,Chuck,The Way of the Dragon
+Stallone,Sylvester,Rocky
+Schwarzenegger,Arnold,The Terminator
+
+

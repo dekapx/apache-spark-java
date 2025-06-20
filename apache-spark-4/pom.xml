@@ -5,15 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dekapx.java</groupId>
-    <artifactId>apache-spark-java-v1</artifactId>
-    <name>apache-spark-java-v1</name>
-    <description>Apache Spark Java Quickstart v21</description>
+    <artifactId>apache-spark-4</artifactId>
+    <name>apache-spark-4</name>
+    <description>Apache Spark-4 Java Examples</description>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <java.version>17</java.version>
-        <spark.version>3.5.5</spark.version>
-        <jackson.version>2.15.2</jackson.version>
+        <!--<spark.version>3.5.5</spark.version>-->
+        <spark.version>4.0.0</spark.version>
+        <jackson.version>2.18.2</jackson.version>
+        <lombok.version>1.18.34</lombok.version>
+        <junit-jupiter.version>5.13.1</junit-jupiter.version>
+        <mockito-core.version>5.18.0</mockito-core.version>
+        <mockito-inline.version>5.2.0</mockito-inline.version>
+        <assertj-core.version>3.27.3</assertj-core.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
     </properties>
 

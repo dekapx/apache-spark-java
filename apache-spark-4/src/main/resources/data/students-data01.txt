@@ -1,0 +1,11 @@
+last_name,first_name,marks,city
+Smith,John,85,New York
+Doe,Jane,90,Los Angeles
+Brown,Emily,78,Chicago
+Johnson,Michael,72,Houston
+Williams,Olivia,98,Phoenix
+Jones,James,65,Philadelphia
+Garcia,Sophia,80,San Antonio
+Martinez,David,57,San Diego
+Hernandez,Isabella,91,Dallas
+Lopez,Daniel,98,San Jose
