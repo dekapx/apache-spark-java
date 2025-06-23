@@ -8,9 +8,6 @@ import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.concat;
 import static org.apache.spark.sql.functions.lit;
 
-/**
- * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
- */
 public class SparkCsvRead {
     public static final String CSV_FILE_FORMAT = "csv";
     public static final String CSV_FILE_PATH = "src/main/resources/data/movies-data.txt";

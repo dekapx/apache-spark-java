@@ -9,9 +9,6 @@ import java.util.Arrays;
 
 import static org.apache.spark.sql.functions.col;
 
-/**
- * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
- */
 public class PojoDataSet {
     public static void main(String[] args) {
         SparkSession sparkSession = createSparkSession();

@@ -9,9 +9,6 @@ import java.util.List;
 import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.lit;
 
-/**
- * vm-args: --add-exports java.base/sun.nio.ch=ALL-UNNAMED
- */
 public class SparkDataframeToCollection {
     private static final String FILE_FORMAT = "csv";
     private static final String HEADER = "header";
