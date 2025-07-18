@@ -3,6 +3,7 @@ package com.dekapx.spark.quickstart;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 
 @Slf4j
@@ -50,7 +51,8 @@ public class SparkCsvToParquetJob {
     private void writeDataFrameToParquet(Dataset<Row> dataFrame) {
         log.info("Writing DataFrame to Parquet file...");
         dataFrame.write()
-                .mode("overwrite")
+                .mode(SaveMode.Append)
+                .partitionBy("location")    // 'location' is a column in the CSV
                 .parquet(PARQUET_FILE_PATH);
     }
 
