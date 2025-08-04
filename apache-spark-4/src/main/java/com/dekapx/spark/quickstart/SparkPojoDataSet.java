@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import static org.apache.spark.sql.functions.col;
 
-public class PojoDataSet {
+public class SparkPojoDataSet {
     public static void main(String[] args) {
         SparkSession sparkSession = createSparkSession();
         Dataset<Person> dataset = createDataset(sparkSession);
