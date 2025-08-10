@@ -12,7 +12,6 @@ public class ReadCsvAddNewColumn {
     public static void main(String[] args) {
         SparkSession spark = createSparkSession();
 
-        // Read a CSV file and print its schema and data
         Dataset<Row> dataset = readCsvFile(spark);
         dataset.printSchema();
         dataset.show(5, false); // Show 5 rows without truncating
