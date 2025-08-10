@@ -1,5 +1,7 @@
 package com.dekapx.java.chapter06;
 
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.StructField;
 
@@ -15,16 +17,15 @@ import static org.apache.spark.sql.types.DataTypes.createStructType;
 public class AddDataToEmptyDataFrameWithSchema {
     public static void main(String[] args) {
         SparkSession spark = createSparkSession();
-        // Create an empty DataFrame
-        var emptyDataFrame = spark.createDataFrame(new ArrayList<>(), createStructType(new StructField[]{
+        // Create an empty DataFrame with a schema
+        Dataset<Row> emptyDataFrame = spark.createDataFrame(new ArrayList<>(), createStructType(new StructField[]{
                 createStructField("id", IntegerType, false),
                 createStructField("name", StringType, true)
         }));
-        // Show the empty DataFrame
         emptyDataFrame.show();
 
         // add values to the DataFrame
-        var dataWithValues = emptyDataFrame
+        Dataset<Row> dataWithValues = emptyDataFrame
                 .union(spark.createDataFrame(Arrays.asList(
                         create(1, "Alice"),
                         create(2, "Bob"),
