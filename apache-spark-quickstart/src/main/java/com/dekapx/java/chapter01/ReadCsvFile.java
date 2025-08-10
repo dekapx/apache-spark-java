@@ -26,7 +26,7 @@ public class ReadCsvFile {
     private static SparkSession createSparkSession() {
         return SparkSession
                 .builder()
-                .appName("ApacheSparkHelloWorld")
+                .appName("ApacheSparkQuickStart")
                 .master("local[*]")
                 .getOrCreate();
     }
