@@ -1,0 +1,9 @@
+transaction_id,customer_id,car_model,car_price,sale_date
+1,101,Toyota Camry,24000,2023-01-15
+2,102,Honda Accord,22000,2023-01-16
+3,103,Ford Focus,18000,2023-01-17
+4,104,Tesla Model 3,35000,2023-01-18
+5,105,Chevrolet Malibu,20000,2023-01-19
+6,106,Nissan Altima,23000,2023-01-20
+7,107,Hyundai Sonata,21000,2023-01-21
+8,108,Kia Optima,19000,2023-01-22

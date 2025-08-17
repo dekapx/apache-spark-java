@@ -13,4 +13,9 @@
     <!-- org level warn -->
     <logger name="org" level="warn"/>
     <logger name="akka" level="warn"/>
+    <logger name="log4j.logger.org.apache.spark.repl.SparkIMain$exprTyper" level="warn"/>
+    <logger name="org.apache.spark" level="warn"/>
+    <logger name="org.apache.hadoop" level="warn"/>
+    <logger name="org.apache.zookeeper" level="warn"/>
+    <logger name="org.apache.kafka" level="warn"/>
 </configuration>

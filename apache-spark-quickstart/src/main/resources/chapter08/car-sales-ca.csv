@@ -1,0 +1,12 @@
+transaction_id,customer_id,car_model,car_price,sale_date
+9,109,Subaru Legacy,22000,2023-01-23
+10,110,Mazda 6,24000,2023-01-24
+11,111,Volkswagen Passat,25000,2023-01-25
+12,112,Chrysler 300,27000,2023-01-26
+13,113,Jeep Grand Cherokee,32000,2023-01-27
+14,114,Dodge Charger,29000,2023-01-28
+15,115,Ford Explorer,31000,2023-01-29
+16,116,Toyota RAV4,33000,2023-01-30
+17,117,Honda CR-V,34000,2023-01-31
+18,118,Nissan Rogue,28000,2023-02-01
+19,119,Chevrolet Equinox,26000,2023-02-02
