@@ -1,18 +1,19 @@
-package com.dekapx.spark.quickstart;
+package com.dekapx.java.chapter07;
 
-import com.dekapx.spark.model.Person;
+import com.dekapx.java.chapter07.model.Person;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 import java.util.List;
 
-public class SparkJavaCollectionToDataframe {
+public class JavaCollectionToDataFrame {
     public static void main(String[] args) {
-        SparkSession sparkSession = createSparkSession();
+        SparkSession spark = createSparkSession();
         List<Person> people = createPersons();
 
-        Dataset<Row> dataFrame = sparkSession.createDataFrame(people, Person.class);
+        spark.createDataFrame(people, Person.class);
+        Dataset<Row> dataFrame = spark.createDataFrame(people, Person.class);
         dataFrame.printSchema();
         dataFrame.show();
 
@@ -21,14 +22,6 @@ public class SparkJavaCollectionToDataframe {
                 .count()
                 .orderBy("age")
                 .show();
-    }
-
-    private static SparkSession createSparkSession() {
-        return SparkSession
-                .builder()
-                .appName("SparkJavaCollectionToDataframe")
-                .master("local[*]")
-                .getOrCreate();
     }
 
     private static List<Person> createPersons() {
@@ -43,4 +36,13 @@ public class SparkJavaCollectionToDataframe {
                 new Person("Alice", 22)
         );
     }
+
+    private static SparkSession createSparkSession() {
+        return SparkSession
+                .builder()
+                .appName("ApacheSparkQuickStart")
+                .master("local[*]")
+                .getOrCreate();
+    }
 }
+
