@@ -14,3 +14,21 @@
 - Display the DataFrame with values
 ```
 
+### CsvReadDataFrameInferSchema
+```java
+- Read a CSV file into a DataFrame with schema inference
+- CSV contents are separated by pipes ("|")
+- Display the DataFrame
+```
+```json
+schema sample
+{
+  "id": "IntegerType",
+  "first_name": "StringType",
+  "middle_name": "StringType",
+  "last_name": "StringType",
+  "date_of_birth": "DateType",
+  "city": "StringType",
+  "marks": "DoubleType"
+}
+```

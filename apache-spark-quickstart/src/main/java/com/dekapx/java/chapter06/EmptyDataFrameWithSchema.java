@@ -15,7 +15,6 @@ import static org.apache.spark.sql.types.DataTypes.createStructType;
 public class EmptyDataFrameWithSchema {
     public static void main(String[] args) {
         SparkSession spark = createSparkSession();
-        // Create an empty DataFrame with a schema
         Dataset<Row> emptyDataFrame = spark.createDataFrame(new ArrayList<>(), createStructType(new StructField[]{
                 createStructField("id", IntegerType, false),
                 createStructField("name", StringType, true)
