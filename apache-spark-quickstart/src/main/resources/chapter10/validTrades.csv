@@ -1,0 +1,5 @@
+trade_id,type,price,quantity,location,trade_date
+1,BUY,100.0,10,New York,2023-01-01
+7,BUY,101.0,20,Boston,2023-01-07
+11,BUY,103.0,18,Philadelphia,2023-01-11
+25,BUY,92.0,27,Tucson,2023-01-25
