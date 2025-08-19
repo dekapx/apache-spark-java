@@ -1,0 +1,11 @@
+student_id,first_name,last_name,email,city,state
+A1001,John,Doe,john.doe@gmail.com,New York,NY
+A1002,Jane,Smith,Jane.Smith@outlook.com,Los Angeles,CA
+A1003,Emily,Jones,Emily.Jones@yahoo.com,Chicago,IL
+A1004,Michael,Brown,mbrown@microsoft.com,Seattle,WA
+A1001,Jessica,Garcia,jgarcia@amazon.com,Houston,TX
+A1005,Christopher,Moore,mchristopher@google.com,Phoenix,AZ
+A1006,David,Martinez,David.m@twitter.com,San Francisco,CA
+A1007,Sarah,Johnson,s.Johnson@microsoft.com,Miami,FL
+A1001,Daniel,Lee,Daniel.Lee@google.com,Denver,CO
+A1002,Ashley,Wilson,aWilson@yahoo.com,Atlanta,GA
