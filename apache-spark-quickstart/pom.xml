@@ -13,8 +13,10 @@
     <properties>
         <java.version>21</java.version>
         <spark.version>4.0.0</spark.version>
+        <scala.compatible.version>2.13</scala.compatible.version>
         <jackson.version>2.18.2</jackson.version>
         <lombok.version>1.18.34</lombok.version>
+        <slf4j-api.version>2.0.17</slf4j-api.version>
         <junit-jupiter.version>5.13.1</junit-jupiter.version>
         <mockito-core.version>5.18.0</mockito-core.version>
         <mockito-inline.version>5.2.0</mockito-inline.version>
@@ -25,12 +27,17 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.13</artifactId>
+            <artifactId>spark-core_${scala.compatible.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.13</artifactId>
+            <artifactId>spark-sql_${scala.compatible.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.compatible.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
         <dependency>
@@ -46,7 +53,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.17</version>
+            <version>${slf4j-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
