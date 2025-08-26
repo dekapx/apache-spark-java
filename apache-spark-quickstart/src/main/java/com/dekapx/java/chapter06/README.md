@@ -32,3 +32,12 @@ schema sample
   "marks": "DoubleType"
 }
 ```
+
+### WriteDataFrameWithSchemaToCsv
+```java
+- Create an empty DataFrame with a schema
+- Display the empty DataFrame
+- Add values to the DataFrame
+- Display the DataFrame with values
+- Write the DataFrame to a CSV file
+```
