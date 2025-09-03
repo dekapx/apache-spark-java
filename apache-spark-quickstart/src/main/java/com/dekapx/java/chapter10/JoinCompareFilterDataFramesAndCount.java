@@ -29,11 +29,13 @@ public class JoinCompareFilterDataFramesAndCount {
                         when((allTradesDF.col("trade_Id")
                                 .equalTo(validTradesDF.col("trade_Id"))), lit(true))
                                 .otherwise(lit(false)))
-                .drop(validTradesDF.col("trade_Id"));
+                .drop(validTradesDF.col("trade_Id"))
+                .cache();
         filteredDF.show();
 
         long validTradesCount = filteredDF.filter(col("valid_trade").equalTo(true)).count();
         long invalidTradesCount = filteredDF.filter(col("valid_trade").equalTo(false)).count();
+        System.out.println("Total number of trades: " + filteredDF.count());
         System.out.println("Number of valid trades: " + validTradesCount);
         System.out.println("Number of invalid trades: " + invalidTradesCount);
     }
