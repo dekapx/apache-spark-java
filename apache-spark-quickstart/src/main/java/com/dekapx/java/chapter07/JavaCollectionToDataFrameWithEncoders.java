@@ -2,17 +2,26 @@ package com.dekapx.java.chapter07;
 
 import com.dekapx.java.chapter07.model.Person;
 import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Encoder;
+import org.apache.spark.sql.Encoders;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 import java.util.List;
 
-public class JavaCollectionToDataFrame {
+public class JavaCollectionToDataFrameWithEncoders {
     public static void main(String[] args) {
         SparkSession spark = createSparkSession();
         List<Person> people = createPersons();
+        Encoder<Person> personEncoder = Encoders.bean(Person.class);
 
-        Dataset<Row> dataFrame = spark.createDataFrame(people, Person.class);
+        // Create Dataset using Encoders
+        Dataset<Person> personDataset = spark.createDataset(people, personEncoder);
+        personDataset.printSchema();
+        personDataset.show();
+
+        // Convert Dataset to DataFrame
+        Dataset<Row> dataFrame = personDataset.toDF();
         dataFrame.printSchema();
         dataFrame.show();
 
