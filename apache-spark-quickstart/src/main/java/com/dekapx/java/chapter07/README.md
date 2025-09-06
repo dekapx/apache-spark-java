@@ -7,6 +7,13 @@
 - Show the DataFrame and print the schema
 - Perform groupBy operation with aggregation
 ```
+### JavaCollectionToDataFrameWithEncoders
+```java
+- Create a Java collection of type Person
+- Convert the Java collection to a DataFrame using Encoders
+- Show the DataFrame and print the schema
+- Perform groupBy operation with aggregation
+```
 
 ### DataFrameToDataSetSelectColumnWithFilter
 ```java
