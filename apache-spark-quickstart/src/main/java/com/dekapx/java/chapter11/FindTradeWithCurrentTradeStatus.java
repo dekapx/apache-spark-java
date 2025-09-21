@@ -3,8 +3,8 @@ package com.dekapx.java.chapter11;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import org.apache.spark.sql.expressions.Window;
 
+import static org.apache.spark.sql.expressions.Window.partitionBy;
 import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.row_number;
 
@@ -17,7 +17,7 @@ public class FindTradeWithCurrentTradeStatus {
         // filter trades with their current trade status
         Dataset<Row> currentTradesDF = tradesDF
                 .withColumn("row_number", row_number()
-                        .over(Window.partitionBy("tradeId").orderBy(col("tradeDate").desc())))
+                        .over(partitionBy("tradeId").orderBy(col("tradeDate").desc())))
                 .filter(col("row_number").equalTo(1))
                 .drop("row_number");
         currentTradesDF.show();
