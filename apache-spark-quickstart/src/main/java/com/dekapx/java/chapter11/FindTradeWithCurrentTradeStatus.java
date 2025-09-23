@@ -9,6 +9,10 @@ import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.row_number;
 
 public class FindTradeWithCurrentTradeStatus {
+    private static final String TRADE_ID = "tradeId";
+    private static final String TRADE_DATE = "tradeDate";
+    private static final String ROW_NUMBER = "row_number";
+
     public static void main(String[] args) {
         SparkSession spark = createSparkSession();
         Dataset<Row> tradesDF = readTradesCsv(spark);
@@ -16,10 +20,10 @@ public class FindTradeWithCurrentTradeStatus {
 
         // filter trades with their current trade status
         Dataset<Row> currentTradesDF = tradesDF
-                .withColumn("row_number", row_number()
-                        .over(partitionBy("tradeId").orderBy(col("tradeDate").desc())))
-                .filter(col("row_number").equalTo(1))
-                .drop("row_number");
+                .withColumn(ROW_NUMBER, row_number()
+                        .over(partitionBy(TRADE_ID).orderBy(col(TRADE_DATE).desc())))
+                .filter(col(ROW_NUMBER).equalTo(1))
+                .drop(ROW_NUMBER);
         currentTradesDF.show();
     }
 
