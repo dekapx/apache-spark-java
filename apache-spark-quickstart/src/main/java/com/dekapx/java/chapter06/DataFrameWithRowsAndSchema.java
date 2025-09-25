@@ -4,13 +4,17 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.RowFactory;
 import org.apache.spark.sql.SparkSession;
-import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static java.sql.Date.valueOf;
+import static org.apache.spark.sql.types.DataTypes.DateType;
+import static org.apache.spark.sql.types.DataTypes.IntegerType;
+import static org.apache.spark.sql.types.DataTypes.StringType;
+import static org.apache.spark.sql.types.DataTypes.createStructField;
+import static org.apache.spark.sql.types.DataTypes.createStructType;
 
 public class DataFrameWithRowsAndSchema {
     public static void main(String[] args) {
@@ -18,7 +22,7 @@ public class DataFrameWithRowsAndSchema {
         List<Row> rows = createRows();
         List<StructField> structFields = getStructFields();
 
-        Dataset<Row> dataframe = spark.createDataFrame(rows, DataTypes.createStructType(structFields));
+        Dataset<Row> dataframe = spark.createDataFrame(rows, createStructType(structFields));
         dataframe.printSchema();
         dataframe.show();
     }
@@ -35,11 +39,11 @@ public class DataFrameWithRowsAndSchema {
 
     private static List<StructField> getStructFields() {
         return Arrays.asList(
-                DataTypes.createStructField("id", DataTypes.IntegerType, true),
-                DataTypes.createStructField("firstName", DataTypes.StringType, true),
-                DataTypes.createStructField("lastName", DataTypes.StringType, true),
-                DataTypes.createStructField("email", DataTypes.StringType, true),
-                DataTypes.createStructField("dateOfBirth", DataTypes.DateType, true)
+                createStructField("id", IntegerType, true),
+                createStructField("firstName", StringType, true),
+                createStructField("lastName", StringType, true),
+                createStructField("email", StringType, true),
+                createStructField("dateOfBirth", DateType, true)
         );
     }
 
