@@ -41,3 +41,8 @@ schema sample
 - Display the DataFrame with values
 - Write the DataFrame to a CSV file
 ```
+### DataFrameWithRowsAndSchema
+```java
+- Create a DataFrame with rows and schema
+- Display the DataFrame
+```
