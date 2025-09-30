@@ -21,7 +21,7 @@ public class CsvToDataframeToViewWithSqlQuery {
 
 
     private static Dataset<Row> csvToDataFrame(SparkSession spark) {
-        String filePath = "src/main/resources/chapter05/sample-trades.csv";
+        String filePath = "src/main/resources/chapter05/sample-trades-01.csv";
         return spark.read()
                 .option("header", "true")
                 .option("inferSchema", "true")
