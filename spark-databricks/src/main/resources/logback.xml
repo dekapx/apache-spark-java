@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <!-- org level warn -->
+    <logger name="org" level="warn"/>
+    <logger name="akka" level="warn"/>
+    <logger name="log4j.logger.org.apache.spark.repl.SparkIMain$exprTyper" level="warn"/>
+    <logger name="org.apache.spark" level="warn"/>
+    <logger name="org.apache.hadoop" level="warn"/>
+    <logger name="org.apache.zookeeper" level="warn"/>
+    <logger name="org.apache.kafka" level="warn"/>
+</configuration>
