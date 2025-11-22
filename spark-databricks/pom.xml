@@ -31,25 +31,25 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_${scala.compatible.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_${scala.compatible.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-hive_${scala.compatible.version}</artifactId>
             <version>${spark.version}</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>com.databricks</groupId>
             <artifactId>databricks-sdk-java</artifactId>
             <version>${databricks-sdk-java.version}</version>
-            <scope>provided</scope>
+            <!--<scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>com.databricks</groupId>
